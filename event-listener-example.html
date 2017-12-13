@@ -19,8 +19,8 @@
 
       // For both images we can use a multiple selector, like a class:
       const toggleImage = (event) => {
-        // console.log(event); => prints the event specs
-        // console.log(event.target); => prints the target of the event
+        // console.log(event); -> prints the event specs
+        // console.log(event.target); -> prints the target of the event
         event.target.classList.toggle("img-circle");
       };
 
@@ -44,6 +44,15 @@
       }
 
       setTimeout(addImage, 1000);
+
+      const bindConfirm = (element) => {
+        element.addEventListener("click", (event) => {
+          event.preventDefault();
+          confirm(`Are you sure you want to delete ${element.innerHTML}?`);
+        });
+      };
+
+      document.querySelectorAll(".confirmable").forEach(bindConfirm);
     </script>
   </head>
 
@@ -56,6 +65,12 @@
     </div>
 
     <hr/>
+
+    <div>
+      <a href="#" id="cta">Click here (no default behaviour!)</a>
+    </div>
+
+    <hr />
 
     <a style="display: block; font: normal 20px monospace; color: black;" href="/index.html">Go back</a>
 
