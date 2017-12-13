@@ -8,6 +8,46 @@
         border-radius: 50%;
       }
     </style>
+  </head>
+
+  <body>
+    <div id="images">
+      <img src="https://kitt.lewagon.com/placeholder/users/monsieurpaillard"
+       id="romain" height="200" alt="Romain Paillard" class="img-clickable" />
+      <img src="https://kitt.lewagon.com/placeholder/users/Papillard"
+       id="boris" height="200" alt="Boris Paillard" class="img-clickable" />
+    </div>
+
+    <hr/>
+
+    <div>
+      <a href="#" id="cta" style="display: block; font: normal 20px monospace; color: red;">Click here (no default behaviour!)</a>
+    </div>
+
+    <hr />
+
+    <table>
+      <tr>
+        <td>Romain</td>
+        <td>Paillard</td>
+        <td><a href="/delete/1" class="confirm">Delete</a></td>
+      </tr>
+      <tr>
+        <td>Boris</td>
+        <td>Paillard</td>
+        <td><a href="/delete/2" class="confirm">Delete</a></td>
+      </tr>
+      <tr>
+        <td>Sebastien</td>
+        <td>Saunier</td>
+        <td><a href="/delete/3" class="confirm">Delete</a></td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <a style="display: block; font: normal 20px monospace; color: black;" href="/index.html">Go back</a>
+
     <script>
       // Only for the first image:
       // const romain = document.getElementById("romain");
@@ -48,26 +88,14 @@
       document.getElementById("cta").addEventListener("click", (event) => {
         event.preventDefault();
       });
+
+      document.querySelectorAll(".confirm").forEach((element) => {
+        element.addEventListener("click", (event) => {
+          if (!confirm("Do you really want to delete?")) {
+            event.preventDefault();
+          }
+        })
+      });
     </script>
-  </head>
-
-  <body>
-    <div id="images">
-      <img src="https://kitt.lewagon.com/placeholder/users/monsieurpaillard"
-       id="romain" height="200" alt="Romain Paillard" class="img-clickable" />
-      <img src="https://kitt.lewagon.com/placeholder/users/Papillard"
-       id="boris" height="200" alt="Boris Paillard" class="img-clickable" />
-    </div>
-
-    <hr/>
-
-    <div>
-      <a href="#" id="cta" style="display: block; font: normal 20px monospace; color: red;">Click here (no default behaviour!)</a>
-    </div>
-
-    <hr />
-
-    <a style="display: block; font: normal 20px monospace; color: black;" href="/index.html">Go back</a>
-
   </body>
 </html>
