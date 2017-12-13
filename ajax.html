@@ -7,7 +7,9 @@
 
   <body>
     <div>
-      <a href="#" id="cta" style="display: block; font: normal 20px monospace; color: red;">Click here (no default behaviour!)</a>
+      <ul id="starwars" style="font: normal 20px monospace;">
+
+      </ul>
     </div>
 
     <hr />
@@ -16,10 +18,16 @@
 
     <script>
       // Star Wars API avaiable at https://swapi.co/
-      fetch("https://swapi.co/api/people/")
-        .then(response => response.json()) // -> transforms the respons to a regular JSON
+      fetch("https://swapi.co/api/people/") // -> **url**, there is an HTTP (XHR) request that points to the API
+        .then(response => response.json()) // -> **callback**, transforms the respons to a regular JSON
         .then((data) => {
-          console.log(data); // -> prints the data in the console, there is an HTTP (XHR) request that points to the API
+          console.log(data); // -> prints the data in the console, giving back an array
+
+          const list = document.getElementById("starwars");
+          data.results.forEach((person) => {
+            const item = `<li>${person.name} (${person.height}cm)</li>`;
+            list.insertAdjacentHTML("beforeend", item);
+          });
         });
     </script>
   </body>
