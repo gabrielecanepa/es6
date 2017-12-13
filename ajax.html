@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AJAX Examples - ES6</title>
+  </head>
+
+  <body>
+    <div>
+      <a href="#" id="cta" style="display: block; font: normal 20px monospace; color: red;">Click here (no default behaviour!)</a>
+    </div>
+
+    <hr />
+
+    <a style="display: block; font: normal 20px monospace; color: black;" href="/index.html">Go back</a>
+
+    <script>
+      // Star Wars API avaiable at https://swapi.co/
+      fetch("https://swapi.co/api/people/")
+        .then(response => response.json()) // -> transforms the respons to a regular JSON
+        .then((data) => {
+          console.log(data); // -> prints the data in the console, there is an HTTP (XHR) request that points to the API
+        });
+    </script>
+  </body>
+</html>
