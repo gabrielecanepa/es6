@@ -32,14 +32,28 @@
         const images = document.querySelectorAll(".img-clickable");
         images.forEach(bindClickImage);
       });
+
+      function addImage() {
+        const newImage = document.createElement("img");
+        newImage.src = "https://kitt.lewagon.com/placeholder/users/ssaunier";
+        newImage.style.height = "200px";
+
+        document.getElementById("images").append(newImage);
+
+        bindClickImage(newImage);
+      }
+
+      setTimeout(addImage, 1000);
     </script>
   </head>
 
   <body>
-    <img src="https://kitt.lewagon.com/placeholder/users/monsieurpaillard"
-     id="romain" height="200" alt="Romain Paillard" class="img-clickable" />
-    <img src="https://kitt.lewagon.com/placeholder/users/Papillard"
-     id="boris" height="200" alt="Boris Paillard" class="img-clickable" />
+    <div id="images">
+      <img src="https://kitt.lewagon.com/placeholder/users/monsieurpaillard"
+       id="romain" height="200" alt="Romain Paillard" class="img-clickable" />
+      <img src="https://kitt.lewagon.com/placeholder/users/Papillard"
+       id="boris" height="200" alt="Boris Paillard" class="img-clickable" />
+    </div>
 
     <hr/>
 
