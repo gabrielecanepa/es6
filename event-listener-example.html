@@ -8,6 +8,31 @@
         border-radius: 50%;
       }
     </style>
+    <script>
+      // Only for the first image:
+      // const romain = document.getElementById("romain");
+      // romain.addEventListener("click", (event) => {
+      //   console.log(event);
+      //   console.log(event.target);
+      //   event.target.classList.toggle("img-circle");
+      // });
+
+      // For both images we can use a multiple selector, like a class:
+      const toggleImage = (event) => {
+        // console.log(event); => prints the event specs
+        // console.log(event.target); => prints the target of the event
+        event.target.classList.toggle("img-circle");
+      };
+
+      const bindClickImage = (image) => {
+        image.addEventListener("click", toggleImage);
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(".img-clickable");
+        images.forEach(bindClickImage);
+      });
+    </script>
   </head>
 
   <body>
@@ -20,29 +45,5 @@
 
     <a style="display: block; font: normal 20px monospace; color: black;" href="/index.html">Go back</a>
 
-    <script>
-      // Only for the first image:
-      // const romain = document.getElementById("romain");
-      // romain.addEventListener("click", (event) => {
-      //   console.log(event);
-      //   console.log(event.target);
-      //   event.target.classList.toggle("img-circle");
-      // });
-
-      // For both images we can use a multiple selector, like a class:
-      const images = document.querySelectorAll(".img-clickable");
-
-      const toggleImage = (event) => {
-        // console.log(event); => prints the event specs
-        // console.log(event.target); => prints the target of the event
-        event.target.classList.toggle("img-circle");
-      };
-
-      const bindClickImage = (image) => {
-        image.addEventListener("click", toggleImage);
-      };
-
-      images.forEach(bindClickImage);
-    </script>
   </body>
 </html>
