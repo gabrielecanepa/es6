@@ -43,16 +43,11 @@
         bindClickImage(newImage);
       }
 
-      setTimeout(addImage, 1000);
+      setTimeout(addImage, 1000); // the element appear after 1 second
 
-      const bindConfirm = (element) => {
-        element.addEventListener("click", (event) => {
-          event.preventDefault();
-          confirm(`Are you sure you want to delete ${element.innerHTML}?`);
-        });
-      };
-
-      document.querySelectorAll(".confirmable").forEach(bindConfirm);
+      document.getElementById("cta").addEventListener("click", (event) => {
+        event.preventDefault();
+      });
     </script>
   </head>
 
@@ -67,7 +62,7 @@
     <hr/>
 
     <div>
-      <a href="#" id="cta">Click here (no default behaviour!)</a>
+      <a href="#" id="cta" style="display: block; font: normal 20px monospace; color: red;">Click here (no default behaviour!)</a>
     </div>
 
     <hr />
